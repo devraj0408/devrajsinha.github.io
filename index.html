@@ -7,17 +7,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+
   <header class="fade-slide">
-    <h1>Devraj Sinha</h1>
+    <h1 class="typing">Devraj Sinha</h1>
     <p>Prompt Engineer | AI Enthusiast | NLP Learner</p>
   </header>
 
-  <section class="fade-slide" style="animation-delay: 0.3s;">
+  <section id="about">
     <h2>🧠 About Me</h2>
     <p>I'm Devraj Sinha, a beginner prompt engineer passionate about using language models to solve real-world problems in education, content, and automation.</p>
   </section>
 
-  <section class="fade-slide" style="animation-delay: 0.6s;">
+  <section id="skills">
     <h2>⚙️ Skills</h2>
     <ul>
       <li>Natural Language Processing</li>
@@ -28,7 +38,7 @@
     </ul>
   </section>
 
-  <section class="fade-slide" style="animation-delay: 0.9s;">
+  <section id="projects">
     <h2>📂 Projects</h2>
     <div class="project">
       <h3>🔹 E-commerce Customer Support Automation</h3>
@@ -44,14 +54,14 @@
     </div>
   </section>
 
-  <section class="fade-slide" style="animation-delay: 1.2s;">
+  <section id="contact">
     <h2>📨 Contact</h2>
     <p>Email: <a href="mailto:sinhadev0408@gmail.com">sinhadev0408@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/devraj-sinha-b37121341" target="_blank">linkedin.com/in/devraj-sinha</a></p>
     <p>Portfolio: <a href="https://devrajsinha.com" target="_blank">devrajsinha.com</a></p>
   </section>
 
-  <section class="fade-slide" style="animation-delay: 1.5s;">
+  <section id="resources">
     <h2>📚 Resources</h2>
     <ul>
       <li><a href="https://github.com/dair-ai/Prompt-Engineering-Guide" target="_blank">Prompt Engineering Guide</a></li>
@@ -63,5 +73,40 @@
   <footer>
     <p>© 2025 Devraj Sinha. Built with ❤️ for Prompt Engineering</p>
   </footer>
+
+  <button id="topBtn">⬆️ Top</button>
+
+  <script>
+    // Typing animation
+    const text = document.querySelector('.typing');
+    const words = ["Devraj Sinha", "Prompt Engineer", "AI Enthusiast"];
+    let i = 0, j = 0, currentWord = '', isDeleting = false;
+
+    function type() {
+      currentWord = words[i];
+      text.innerHTML = isDeleting ? currentWord.substring(0, j--) : currentWord.substring(0, j++);
+
+      if (!isDeleting && j === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1000);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+      }
+    }
+    type();
+
+    // Scroll to top button
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    topBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
 </body>
 </html>
