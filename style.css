@@ -1,34 +1,125 @@
+/* Reset and Base Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
+  line-height: 1.6;
 }
+
+nav {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 header {
   background-color: #4a90e2;
   color: white;
   padding: 40px 20px;
   text-align: center;
+  animation: fadeSlideDown 1.5s ease-out forwards;
 }
+
+.typing {
+  font-size: 2em;
+  font-weight: bold;
+  min-height: 1.5em;
+}
+
 section {
   padding: 30px 20px;
   max-width: 900px;
   margin: auto;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeSlideDown 1s ease-out forwards;
 }
+
+section:nth-of-type(1) { animation-delay: 0.3s; }
+section:nth-of-type(2) { animation-delay: 0.6s; }
+section:nth-of-type(3) { animation-delay: 0.9s; }
+section:nth-of-type(4) { animation-delay: 1.2s; }
+section:nth-of-type(5) { animation-delay: 1.5s; }
+
 h1, h2 {
   margin-bottom: 10px;
+  line-height: 1.2;
 }
+
 .project {
   margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 footer {
   text-align: center;
   padding: 20px;
   background: #eee;
   color: #666;
+  font-size: 14px;
 }
-/* Animation for fade-in effect */
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Scroll to Top Button */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#topBtn:hover {
+  background-color: #357ab8;
+}
+
+/* Animation Keyframes */
 @keyframes fadeSlideDown {
   from {
     opacity: 0;
@@ -38,16 +129,4 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-header {
-  animation: fadeSlideDown 1.5s ease-out;
-}
-
-a {
-  color: #4a90e2;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
 }
