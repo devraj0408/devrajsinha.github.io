@@ -28,6 +28,22 @@ footer {
   background: #eee;
   color: #666;
 }
+/* Animation for fade-in effect */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  animation: fadeSlideDown 1.5s ease-out;
+}
+
 a {
   color: #4a90e2;
   text-decoration: none;
